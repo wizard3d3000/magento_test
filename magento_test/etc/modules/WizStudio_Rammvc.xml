@@ -1,0 +1,10 @@
+<config>
+    
+    <modules>
+        <WizStudio_Rammvc>
+            <active>true</active>
+            <codePool>local</codePool>
+        </WizStudio_Rammvc>
+    </modules>
+    
+</config>

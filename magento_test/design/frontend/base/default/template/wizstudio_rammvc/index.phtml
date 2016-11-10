@@ -1,0 +1,10 @@
+<h1>База данных о любимых книжках:</h1>
+<br>
+<?php
+
+$news = Mage::registry('registry_rammvc');
+
+foreach ($news as $item) {
+    echo $item['author'].' -- '.$item['book'].' -- '.$item['created'];
+    echo '<br>';
+}

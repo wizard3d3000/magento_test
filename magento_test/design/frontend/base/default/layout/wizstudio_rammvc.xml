@@ -1,0 +1,7 @@
+<layout>
+    <rammvc_index_index>
+        <reference name="content">
+            <block type="core/template" template="wizstudio_rammvc/index.phtml" />
+        </reference>
+    </rammvc_index_index>
+</layout>

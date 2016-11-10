@@ -1,0 +1,106 @@
+<config>
+    
+    <modules>
+        <WizStudio_Rammvc>
+            <version>0.0.1</version>
+        </WizStudio_Rammvc>
+    </modules>
+    
+    <frontend>
+        <layout>
+            <updates>
+                <rammvc>
+                    <file>wizstudio_rammvc.xml</file>
+                </rammvc>
+            </updates>
+        </layout>
+        <routers>
+            <rammvc>
+                <use>standard</use>
+                <args>
+                    <module>WizStudio_Rammvc</module>
+                    <frontName>rammvc</frontName>
+                </args>
+            </rammvc>
+        </routers>
+    </frontend>
+    
+    <global>
+        
+        <models>
+            <rammvc>
+                <class>WizStudio_Rammvc_Model</class>
+                <resourceModel>rammvc_resource</resourceModel>
+            </rammvc>
+            <rammvc_resource>
+                <class>WizStudio_Rammvc_Model_Resource</class>
+                <entities>
+                    <table_rammvc>
+                        <table>wizstudio_rammvc</table>
+                    </table_rammvc>
+                </entities>
+            </rammvc_resource>
+        </models>
+        
+         <events>
+            <checkout_multishipping_controller_success_action>
+                <observers>
+                    <WizStudio_Rammvc_Model_Observer>
+                        <type>singleton</type>
+                        <class>WizStudio_Rammvc_Model_Observer</class>
+                        <method>testobservermet</method>
+                    </WizStudio_Rammvc_Model_Observer>
+                </observers>
+            </checkout_multishipping_controller_success_action>
+        </events>
+        
+        <resources>
+            <rammvc_setup>
+                <setup>
+                    <module>WizStudio_Rammvc</module>
+                </setup>
+            </rammvc_setup>
+        </resources>
+        
+        <helpers>
+            <rammvc>
+                <class>WizStudio_Rammvc_Helper</class>
+            </rammvc>
+        </helpers>
+        
+    </global>
+    
+	
+    <admin>
+        <routers>
+            <testmvc_admin>
+                <use>admin</use>
+                <args>
+                    <module>WizStudio_Rammvc</module>
+                    <frontName>testmvc_admin</frontName>
+                </args>
+            </testmvc_admin>
+        </routers>
+    </admin>
+    
+    <adminhtml>
+        <menu>
+            <sales translate="title" module="sales">
+                <title>Sales</title>
+                <sort_order>20</sort_order>
+                <depends><module>Mage_Sales</module></depends>
+                <children>
+                   <order translate="title" module="sales">
+                       <title>Test_Magento</title>
+                       <action>testmvc_admin/adminhtml_testobservermvc</action>
+                       <sort_order>10</sort_order>
+                   </order>
+                </children>
+            </sales>
+        </menu>
+        
+       
+    </adminhtml>
+    
+</config>   
+
